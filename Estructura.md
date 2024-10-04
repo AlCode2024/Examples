@@ -1,4 +1,6 @@
-```app
+```
+
+app
  ├── manifests
  │    └── AndroidManifest.xml
  ├── java
@@ -37,4 +39,5 @@
  │    ├── xml                              # Archivos XML adicionales
  │    └── raw                              # Archivos JSON o multimedia crudos
  ├── build.gradle                          # Archivo de configuración de Gradle
+
 ```
