@@ -31,5 +31,7 @@ La diferencia principal entre **Kotlin** y **React Native** radica en que son te
    - **React Native**: Permite ahorrar tiempo en proyectos que necesitan ser lanzados en **Android e iOS**, ya que la mayor parte del código es reutilizable entre ambas plataformas.
 
 ### Resumen:
+
 - **Kotlin** es ideal si deseas desarrollar aplicaciones nativas para Android con un control completo y un rendimiento óptimo.
+  
 - **React Native** es excelente si estás buscando una solución **multiplataforma**, que permita compartir la mayor parte del código entre Android e iOS.
