@@ -50,6 +50,11 @@ npm install
 <h2>Captura de Pantalla</h2>
 <img src="https://via.placeholder.com/600x400" alt="Captura de Pantalla">
 
-<h2>Contribuir</h2>
-<p>Para contribuir, sigue las instrucciones del <a href="CONTRIBUTING.md">archivo de contribución</a>.</p>
+<h2>Este texto esta utilizando comandos html</h2>
+<hr style="border: 2px solid black;">
+
+```html
+<h2>Este texto esta utilizando comandos html</h2>
+<hr style="border: 2px solid black;">
+```
 
