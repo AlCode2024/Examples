@@ -1,6 +1,11 @@
 > [!CAUTION]
 > ESTAMOS EN FASE DE PRUEBAS.  
 > La información podria contener errores.
+>
+>
+>    PRUEBAS
+>
+> 
 
 # Probando sintaxis
 
