@@ -74,3 +74,118 @@ hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroidGradle
 
 
 ```
+
+BUILD GRADLE
+
+
+
+```Bash
+
+plugins {
+    id("com.android.application")              // Plugin for Android application projects.
+    id("kotlin-android")                       // Plugin for using Kotlin in Android projects.
+    id("kotlin-kapt")                          // Enables Kotlin annotation processing, useful for libraries like Hilt.
+    id("com.google.dagger.hilt.android")       // Plugin for Hilt dependency injection in Android.
+    id("org.jetbrains.kotlin.plugin.parcelize")// Plugin for using Parcelable in Kotlin, making object serialization easier.
+    id("org.jetbrains.kotlin.plugin.compose")  // Plugin for Jetpack Compose, Kotlins UI toolkit.}
+}
+    android {
+        namespace =
+            "com.example.probandoapi"      // Sets the base package namespace for the project.
+        compileSdk =
+            34                            // Specifies the SDK level used to compile the app.
+
+        defaultConfig {
+            applicationId = "com.example.probandoapi" // Unique identifier for the application.
+            minSdk = 26                                // Minimum SDK level supported by the app.
+            targetSdk = 34                             // Target SDK level for which the app is optimized.
+            versionCode = 1                            // Internal version code for the app.
+            versionName = "1.0"                        // Version name for display purposes.
+
+            // Configuración para Hilt
+            javaCompileOptions {
+                annotationProcessorOptions {
+                    // Disables Android superclass validation in Hilt, which can be useful for some edge cases.
+                    arguments.put(
+                        "dagger.hilt.android.internal.disableAndroidSuperclassValidation",
+                        "true"
+                    )
+                }
+            }
+        }
+
+        buildTypes {
+            release {
+                isMinifyEnabled =
+                    false                // Disables code shrinking in the release build.
+                // Sets ProGuard rules for the release build.
+                proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+                )
+            }
+        }
+
+        compileOptions {
+            sourceCompatibility =
+                JavaVersion.VERSION_17   // Sets Java source compatibility to version 17.
+            targetCompatibility =
+                JavaVersion.VERSION_17   // Sets Java target compatibility to version 17.
+        }
+
+        kotlinOptions {
+            jvmTarget =
+                "17"                            // Sets JVM target to version 17 for Kotlin compilation.
+        }
+
+        buildFeatures {
+            compose = true                              // Enables Jetpack Compose for building UIs.
+        }
+
+        composeOptions {
+            kotlinCompilerExtensionVersion =
+                "1.5.2"    // Specifies the version of the Kotlin Compose compiler.
+        }
+    }
+
+    dependencies {
+        implementation(libs.androidcorelibrary)           // Core KTX library for Android extensions.
+        implementation(libs.androidx.appcompat)          // AppCompat library for backward compatibility.
+        implementation(libs.material)                    // Material Design components library.
+        implementation(libs.corektx)                          // Core UI toolkit for Jetpack Compose.
+        implementation(libs.androidx.material3)          // Material 3 components for Jetpack Compose.
+        implementation(libs.previewtfc)          // Preview tools for Compose UI.
+        debugImplementation(libs.androidx.ui.tooling)             // Tooling library for debugging in Compose.
+        debugImplementation(libs.androidx.ui.test.manifest)       // Manifest tool for UI testing in Compose.
+        implementation(libs.androidx.lifecycle.runtime.ktx.v260) // Lifecycle-aware components.
+        implementation(libs.androidx.activity.compose.v170) // Activity integration with Compose.
+
+        // Hilt para inyección de dependencias
+        implementation(libs.hilt.android)                // Hilt library for dependency injection.
+        kapt(libs.hilt.android.compiler)                 // Compiler for Hilt annotation processing.
+        implementation(libs.androidx.hilt.navigation.compose) // Hilt navigation integration for Compose.
+
+        // Dependencias de prueba (opcional)
+        testImplementation(libs.junit)                   // JUnit library for unit testing.
+        androidTestImplementation(libs.testjunit4)  // AndroidX JUnit extension for Android testing.
+        androidTestImplementation(libs.androidx.espresso.core.v351) // Espresso library for UI testing.
+        androidTestImplementation(libs.androidx.ui.test.junit4) // JUnit testing library for Compose UI.
+
+        // Retrofit y Gson (asegúrate de que estas referencias están definidas en libs.versions.toml)
+        implementation(libs.retrofit.core)               // Retrofit library for HTTP networking.
+        implementation(libs.converter.gson)              // Gson converter for Retrofit, for JSON serialization.
+
+        // Coil
+        implementation(libs.coil.compose)                // Coil library for image loading in Jetpack Compose.
+
+        // Hilt Compiler desde el catálogo
+        kapt(libs.hilt.android.compiler)                         // Hilt compiler from version catalog.
+    }
+
+    kapt {
+        correctErrorTypes =
+            true                         // Allows kapt to ignore certain error types.
+    }
+
+
+```
