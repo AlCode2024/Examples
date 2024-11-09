@@ -189,3 +189,31 @@ plugins {
 
 
 ```
+
+
+OTRO BUILD.GRADLE
+
+```bash
+
+// build.gradle.kts de nivel de proyecto
+
+plugins {
+    // Plugin para aplicaciones de Android, con una versión específica, pero no se aplica aquí directamente.
+    id("com.android.application") version "8.6.0" apply false
+
+    // Plugin para utilizar Kotlin en proyectos de Android.
+    id("org.jetbrains.kotlin.android") version "2.0.21" apply false
+
+    // Plugin de Hilt para la inyección de dependencias en Android.
+    id("com.google.dagger.hilt.android") version "2.52" apply false
+
+    // Plugin para habilitar Jetpack Compose, el kit de herramientas de UI declarativo de Kotlin.
+    //id("org.jetbrains.compose") version "1.6.11" apply false
+
+    // Plugin adicional para Jetpack Compose, para soportar nuevas funcionalidades de Compose en Kotlin.
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0" apply false
+}
+
+
+
+```
